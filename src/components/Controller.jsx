@@ -128,14 +128,25 @@ const Controller = ({cards, setCards, setCurrentPosition, setCurrentDirection, c
                     ))
                 }
             </div>
-            <button 
+            <div>
+                <button 
+                    className="run-button"
+                    onClick={() => {
+                        setIsStarted(true)
+                    }}
+                >
+                    Run!
+                </button>
+                <button 
                 className="run-button"
                 onClick={() => {
-                    setIsStarted(true)
-                }}
-            >
-                Run!
-            </button>
+                    setStatus('');
+                    setCurrentIndicartor(0);
+                    setIsStarted(false);
+                    setCurrentPosition({x : 1, y : 1})
+                    setCurrentDirection({x : 0, y : 1})
+                }}>다시하기</button>
+            </div>
             <div className={`modal-text ${status && 'show'}`}>{status}</div>
         </div>
     )
