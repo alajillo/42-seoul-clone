@@ -25,6 +25,7 @@ const Controller = ({cards, setCards, setCurrentPosition, setCurrentDirection, c
     const [currentFn, setCurrentFn] = useState({});
     const [status,setStatus] =useState(false);
     const onHandleCard = (index) => {
+            if(isStarted) return;
             setCards(v => v.map((card,cardIdx) => {
                 if(index !== cardIdx) return card;
                 return {
