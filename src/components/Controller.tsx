@@ -25,6 +25,7 @@ const Controller = ({cards, setCards, setCurrentPosition, setCurrentDirection, c
     const [currentFn, setCurrentFn] = useState({});
     const [status,setStatus] =useState(false);
     const onHandleCard = (index) => {
+            if(isStarted) return;
             setCards(v => v.map((card,cardIdx) => {
                 if(index !== cardIdx) return card;
                 return {
@@ -86,7 +87,7 @@ const Controller = ({cards, setCards, setCurrentPosition, setCurrentDirection, c
                                                     className={`fn ${fn.name} ${currentFn.name === fn.name && 'selected'}`} 
                                                     key={index}
                                                     onClick={() => {
-                                                        if(fn.name === currentFn.name) setCurrentFn(undefined);
+                                                        if(fn.name === currentFn.name) setCurrentFn({});
                                                         else setCurrentFn(fn);
                                                     }}
                                                     /> 
@@ -99,7 +100,7 @@ const Controller = ({cards, setCards, setCurrentPosition, setCurrentDirection, c
                                                         className={`color ${color} ${currentColor === color && 'selected'}`} 
                                                         key={index}
                                                         onClick={() => {
-                                                            if(color === currentColor) setCurrentColor(undefined);
+                                                            if(color === currentColor) setCurrentColor('');
                                                             else setCurrentColor(color);
                                                         }}
                                                     /> 
