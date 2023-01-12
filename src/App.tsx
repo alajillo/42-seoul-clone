@@ -3,6 +3,7 @@ import createMap from "./createMap"
 import Controller from "./components/Controller";
 import {createCards} from './game'
 import { useState } from "react";
+import { Kbd } from '@chakra-ui/react'
 function App() {
   const [map] = useState(createMap());
   const [cards,setCards] = useState(createCards(6));
